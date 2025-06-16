@@ -109,7 +109,7 @@ class ArrayChunkOffset : public ChunkOffset {
 
   uint64_t operator[](size_t idx) const override { return chunk_offsets_[idx]; }
 
-  uint64_t size() const override { return chunk_offsets_.size(); }
+  size_t size() const override { return chunk_offsets_.size(); }
 
  private:
   ArrayChunkOffset(std::vector<uint64_t> chunk_offsets)
@@ -141,7 +141,7 @@ class OffloadedChunkOffset : public ChunkOffset {
     return footer.chunk_offset();
   }
 
-  uint64_t size() const override { return num_chunks_; }
+  size_t size() const override { return num_chunks_; }
 
   void update_base_reader(ArrayRecordReaderBase* base_reader) {
     base_reader_ = base_reader;
