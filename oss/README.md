@@ -3,7 +3,7 @@
 `array_record` supports automatic publishing to PyPI via GitHub Actions.
 Once you're ready to create a new release you need to:
 
-1. Update the version number in `setup.py`.
+1. Update the version number in both `setup.py` and `oss/MODULE.bazel` (exported as `MODULE.bazel` on GitHub). Pushing a version bump in `MODULE.bazel` to `main` automatically cuts the GitHub Release (`v<VERSION>`) and opens a Bazel Central Registry PR via `.github/workflows/release.yml`.
 
 2. Go to [GitHub Actions page](https://github.com/google/array_record/actions),
    select `Build and Publish Release` workflow, and run it. It will spin up a
